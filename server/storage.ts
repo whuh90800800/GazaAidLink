@@ -50,7 +50,7 @@ export class MemStorage implements IStorage {
         website: "https://www.pennyappeal.org",
         category: "muslim",
         focusArea: "Emergency Relief",
-        featured: "true"
+        featured: "false"
       },
       {
         name: "Muslim Aid",

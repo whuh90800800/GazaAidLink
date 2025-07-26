@@ -16,7 +16,7 @@ const charities = [
     website: "https://pennyappeal.org",
     category: "muslim",
     focusArea: "Emergency Relief",
-    featured: "true"
+    featured: "false"
   },
   {
     id: "3",
