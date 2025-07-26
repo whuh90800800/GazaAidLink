@@ -4,53 +4,15 @@ export default function Footer() {
   return (
     <footer className="bg-card border-t border-border py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="text-center mb-8">
           <div>
-            <h4 className="text-lg font-semibold text-primary mb-4 flex items-center gap-2">
+            <h4 className="text-lg font-semibold text-primary mb-4 flex items-center justify-center gap-2">
               <AlertTriangle className="h-5 w-5" />
               Important Notice
             </h4>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed max-w-3xl mx-auto">
               This directory is provided for informational purposes. Please conduct your own due diligence before donating to any organization.
             </p>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold text-primary mb-4">Contact</h4>
-            <div className="space-y-2 text-muted-foreground">
-              <p className="flex items-center gap-2">
-                <Mail className="h-4 w-4" />
-                info@gazareliefdirectory.org
-              </p>
-              <p className="flex items-center gap-2">
-                <Globe className="h-4 w-4" />
-                www.gazareliefdirectory.org
-              </p>
-            </div>
-          </div>
-          
-          <div>
-            <h4 className="text-lg font-semibold text-primary mb-4">Resources</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li>
-                <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  Charity Verification Guide
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <DollarSign className="h-4 w-4" />
-                  Tax Deduction Information
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:text-primary transition-colors flex items-center gap-2">
-                  <AlertTriangle className="h-4 w-4" />
-                  Emergency Relief Updates
-                </a>
-              </li>
-            </ul>
           </div>
         </div>
         

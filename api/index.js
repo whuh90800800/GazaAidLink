@@ -1,14 +1,14 @@
-import express from 'express';
-import { storage } from '../server/storage.js';
-import { insertCharitySchema } from '../shared/schema.js';
-import {
+const express = require('express');
+const { storage } = require('./storage.js');
+const { insertCharitySchema } = require('./schema.js');
+const {
   rateLimitMiddleware,
   securityHeadersMiddleware,
   fingerprintMiddleware,
   secureLoggingMiddleware,
   honeypotMiddleware,
   antiDDoSMiddleware
-} from '../server/security.js';
+} = require('./security.js');
 
 const app = express();
 
