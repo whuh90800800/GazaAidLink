@@ -1,4 +1,4 @@
-import { CircleFadingArrowUp, Globe, MapPin, Stethoscope, GraduationCap } from "lucide-react";
+import { CircleFadingArrowUp, Globe, MapPin, Stethoscope, GraduationCap, Heart } from "lucide-react";
 import CharityCard from "./charity-card";
 import type { Charity } from "@shared/schema";
 
@@ -13,7 +13,7 @@ interface CharitySectionProps {
 
 const icons = {
   mosque: CircleFadingArrowUp,
-  globe: Globe,
+  heart: Heart,
   "map-pin": MapPin,
   stethoscope: Stethoscope,
   "graduation-cap": GraduationCap,

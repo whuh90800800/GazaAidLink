@@ -1,4 +1,4 @@
-import { ExternalLink, Star, CircleFadingArrowUp, Globe, MapPin, Stethoscope, GraduationCap } from "lucide-react";
+import { ExternalLink, Star, CircleFadingArrowUp, Globe, MapPin, Stethoscope, GraduationCap, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -10,7 +10,7 @@ interface CharityCardProps {
 
 const categoryIcons = {
   muslim: CircleFadingArrowUp,
-  international: Globe,
+  featured: Heart,
   gaza: MapPin,
   medical: Stethoscope,
   education: GraduationCap,

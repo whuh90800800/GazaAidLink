@@ -41,7 +41,7 @@ charities table:
 - name: text (charity name)
 - description: text (detailed description)
 - website: text (organization website)
-- category: text (muslim, international, gaza, medical, education)
+- category: text (muslim, featured, gaza, medical, education)
 - focusArea: text (specific focus area)
 - featured: text ("true"/"false" flag for highlighting)
 ```
@@ -53,11 +53,11 @@ charities table:
 - `POST /api/charities` - Create new charity (admin functionality)
 
 ### Frontend Components
-- **Navbar**: Sticky navigation with smooth scrolling to sections
-- **SearchFilter**: Real-time search and category filtering
-- **CharityCard**: Individual charity display with external links
-- **CharitySection**: Categorized groupings of charities
-- **Footer**: Legal information and resources
+- **Navbar**: Sticky navigation with smooth scrolling to sections (updated for new categories)
+- **SearchFilter**: Real-time search and category filtering (supports muslim, featured, gaza, medical, education)
+- **CharityCard**: Individual charity display with external links (no images, clean card design)
+- **CharitySection**: Categorized groupings of charities (removed international section)
+- **Footer**: Legal information and resources with Islamic reminder
 
 ### UI/UX Features
 - Dark theme by default
@@ -117,4 +117,18 @@ charities table:
 - Environment variable support for database connection
 - Static file serving capability
 
+### Vercel Deployment
+- **vercel.json**: Configured for Vercel deployment with proper routing
+- **api/index.js**: Serverless API handler for Vercel functions
+- **Build Process**: Uses npm run build to create production assets
+- **Routes**: API requests routed to /api/index.js, static files served from dist/public
+
 The application is designed for easy deployment on platforms like Replit, Vercel, or similar Node.js hosting providers with minimal configuration required beyond the database connection string.
+
+## Recent Changes (Latest)
+- ✓ Removed international relief organizations section as requested
+- ✓ Added Save the Children as featured organization in separate "featured" category
+- ✓ Updated navigation and search filters to reflect new category structure
+- ✓ Added Vercel deployment configuration (vercel.json and api/index.js)
+- ✓ Maintained Islamic reminder "Allah S.W.T Knows Best and we can only guess" throughout the application
+- ✓ Ensured no images are displayed, keeping clean text-based charity cards

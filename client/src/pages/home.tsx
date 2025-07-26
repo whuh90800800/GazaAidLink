@@ -89,11 +89,11 @@ export default function Home() {
       />
 
       <CharitySection
-        id="international"
-        title="International Relief Organizations"
-        subtitle="Globally recognized humanitarian organizations providing critical aid and support to Palestinian communities."
-        icon="globe"
-        charities={getCharitiesByCategory("international")}
+        id="featured"
+        title="Save the Children"
+        subtitle="Leading children's rights organization providing emergency relief, education, and protection services to Palestinian children and families."
+        icon="heart"
+        charities={getCharitiesByCategory("featured")}
       />
 
       <CharitySection

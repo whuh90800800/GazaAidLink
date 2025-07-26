@@ -35,7 +35,7 @@ export default function SearchFilter({
           <SelectContent>
             <SelectItem value="all">All Categories</SelectItem>
             <SelectItem value="muslim">Muslim Charities</SelectItem>
-            <SelectItem value="international">International Relief</SelectItem>
+            <SelectItem value="featured">Save the Children</SelectItem>
             <SelectItem value="gaza">Gaza Specific</SelectItem>
             <SelectItem value="medical">Medical Aid</SelectItem>
             <SelectItem value="education">Educational Support</SelectItem>

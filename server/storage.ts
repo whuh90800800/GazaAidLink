@@ -2,9 +2,6 @@ import { type Charity, type InsertCharity } from "@shared/schema";
 import { randomUUID } from "crypto";
 
 export interface IStorage {
-  getUser(id: string): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  createUser(user: InsertUser): Promise<User>;
   getAllCharities(): Promise<Charity[]>;
   getCharitiesByCategory(category: string): Promise<Charity[]>;
   searchCharities(query: string): Promise<Charity[]>;
@@ -12,11 +9,9 @@ export interface IStorage {
 }
 
 export class MemStorage implements IStorage {
-  private users: Map<string, User>;
   private charities: Map<string, Charity>;
 
   constructor() {
-    this.users = new Map();
     this.charities = new Map();
     this.initializeCharities();
   }
@@ -49,30 +44,14 @@ export class MemStorage implements IStorage {
         featured: "false"
       },
       
-      // International Relief
+      // Save the Children (featured)
       {
         name: "Save the Children",
         description: "Leading children's rights organization providing emergency relief, education, and protection services to Palestinian children and families in Gaza and the West Bank.",
         website: "https://www.savethechildren.org",
-        category: "international",
+        category: "featured",
         focusArea: "Children's Rights",
         featured: "true"
-      },
-      {
-        name: "Oxfam International",
-        description: "Global organization fighting inequality and poverty, providing water, sanitation, and emergency aid to communities in Palestinian territories.",
-        website: "https://www.oxfam.org",
-        category: "international",
-        focusArea: "Water & Sanitation",
-        featured: "false"
-      },
-      {
-        name: "Médecins Sans Frontières",
-        description: "International medical humanitarian organization providing emergency medical care and mental health support in Gaza and Palestinian territories.",
-        website: "https://www.msf.org",
-        category: "international",
-        focusArea: "Medical Emergency",
-        featured: "false"
       },
       
       // Gaza Specific
@@ -156,26 +135,9 @@ export class MemStorage implements IStorage {
 
     initialCharities.forEach(charity => {
       const id = randomUUID();
-      const fullCharity: Charity = { ...charity, id };
+      const fullCharity: Charity = { ...charity, id, featured: charity.featured || "false" };
       this.charities.set(id, fullCharity);
     });
-  }
-
-  async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
-  }
-
-  async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
-  }
-
-  async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
-    return user;
   }
 
   async getAllCharities(): Promise<Charity[]> {
@@ -200,7 +162,7 @@ export class MemStorage implements IStorage {
 
   async createCharity(insertCharity: InsertCharity): Promise<Charity> {
     const id = randomUUID();
-    const charity: Charity = { ...insertCharity, id };
+    const charity: Charity = { ...insertCharity, id, featured: insertCharity.featured || "false" };
     this.charities.set(id, charity);
     return charity;
   }
