@@ -1,8 +1,25 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { setupVite, serveStatic, log } from "./vite";
+import {
+  rateLimitMiddleware,
+  securityHeadersMiddleware,
+  fingerprintMiddleware,
+  secureLoggingMiddleware,
+  honeypotMiddleware,
+  antiDDoSMiddleware
+} from "./security";
 
 const app = express();
+
+// Apply military-grade security middleware
+app.use(securityHeadersMiddleware);
+app.use(honeypotMiddleware);
+app.use(rateLimitMiddleware);
+app.use(antiDDoSMiddleware);
+app.use(fingerprintMiddleware);
+app.use(secureLoggingMiddleware);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

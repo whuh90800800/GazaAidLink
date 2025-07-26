@@ -126,9 +126,18 @@ charities table:
 The application is designed for easy deployment on platforms like Replit, Vercel, or similar Node.js hosting providers with minimal configuration required beyond the database connection string.
 
 ## Recent Changes (Latest)
-- ✓ Removed international relief organizations section as requested
-- ✓ Added Save the Children as featured organization in separate "featured" category
-- ✓ Updated navigation and search filters to reflect new category structure
-- ✓ Added Vercel deployment configuration (vercel.json and api/index.js)
-- ✓ Maintained Islamic reminder "Allah S.W.T Knows Best and we can only guess" throughout the application
-- ✓ Ensured no images are displayed, keeping clean text-based charity cards
+- ✓ Removed educational support organizations section completely
+- ✓ Removed Save the Children (replaced with more Muslim charities)
+- ✓ Added Muslim charity organizations: Penny Appeal (featured), Muslim Aid, ISNA Relief, Helping Hand, Al-Khair Foundation, Ummah Welfare Trust, Muslim Hands
+- ✓ Implemented military-grade backend security features compatible with Vercel:
+  - Advanced IP obfuscation and anonymization using multiple hash layers
+  - Rate limiting with exponential backoff for suspicious IPs
+  - Request fingerprinting for anomaly detection
+  - Security headers middleware (CSP, HSTS, XSS protection, etc.)
+  - Honeypot endpoints to detect automated scanners
+  - Anti-DDoS protection with delays for suspicious traffic
+  - Secure logging with obfuscated data
+- ✓ Updated navigation to show only: Muslim Charities, Gaza Specific, Medical Aid
+- ✓ Updated search filters to match new category structure
+- ✓ Maintained Islamic reminder "Allah S.W.T Knows Best and we can only guess" throughout
+- ✓ All security features designed to make IP tracing extremely difficult, even for military-grade analysis

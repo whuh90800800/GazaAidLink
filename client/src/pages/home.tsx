@@ -89,20 +89,11 @@ export default function Home() {
       />
 
       <CharitySection
-        id="featured"
-        title="Save the Children"
-        subtitle="Leading children's rights organization providing emergency relief, education, and protection services to Palestinian children and families."
-        icon="heart"
-        charities={getCharitiesByCategory("featured")}
-      />
-
-      <CharitySection
         id="gaza-specific"
         title="Gaza-Specific Relief Organizations"
         subtitle="Organizations specifically focused on providing direct aid and support to the people of Gaza."
         icon="map-pin"
         charities={getCharitiesByCategory("gaza")}
-        className="bg-muted/50"
       />
 
       <CharitySection
@@ -111,14 +102,6 @@ export default function Home() {
         subtitle="Specialized medical organizations providing healthcare, medical supplies, and emergency medical assistance."
         icon="stethoscope"
         charities={getCharitiesByCategory("medical")}
-      />
-
-      <CharitySection
-        id="education"
-        title="Educational Support Organizations"
-        subtitle="Organizations dedicated to supporting education and empowering Palestinian students and educational institutions."
-        icon="graduation-cap"
-        charities={getCharitiesByCategory("education")}
         className="bg-muted/50"
       />
 

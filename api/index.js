@@ -1,8 +1,25 @@
 import express from 'express';
 import { storage } from '../server/storage.js';
 import { insertCharitySchema } from '../shared/schema.js';
+import {
+  rateLimitMiddleware,
+  securityHeadersMiddleware,
+  fingerprintMiddleware,
+  secureLoggingMiddleware,
+  honeypotMiddleware,
+  antiDDoSMiddleware
+} from '../server/security.js';
 
 const app = express();
+
+// Apply military-grade security middleware for Vercel
+app.use(securityHeadersMiddleware);
+app.use(honeypotMiddleware);
+app.use(rateLimitMiddleware);
+app.use(antiDDoSMiddleware);
+app.use(fingerprintMiddleware);
+app.use(secureLoggingMiddleware);
+
 app.use(express.json());
 
 // Get all charities

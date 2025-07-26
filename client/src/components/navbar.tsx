@@ -16,10 +16,8 @@ export default function Navbar() {
   const navItems = [
     { label: "Home", id: "home" },
     { label: "Muslim Charities", id: "muslim-charities" },
-    { label: "Save the Children", id: "featured" },
     { label: "Gaza Specific", id: "gaza-specific" },
     { label: "Medical Aid", id: "medical" },
-    { label: "Education", id: "education" },
   ];
 
   return (

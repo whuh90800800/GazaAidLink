@@ -44,14 +44,37 @@ export class MemStorage implements IStorage {
         featured: "false"
       },
       
-      // Save the Children (featured)
       {
-        name: "Save the Children",
-        description: "Leading children's rights organization providing emergency relief, education, and protection services to Palestinian children and families in Gaza and the West Bank.",
-        website: "https://www.savethechildren.org",
-        category: "featured",
-        focusArea: "Children's Rights",
+        name: "Penny Appeal",
+        description: "UK-based Muslim charity providing emergency relief, water projects, and humanitarian aid to Palestinian communities in Gaza and the West Bank.",
+        website: "https://www.pennyappeal.org",
+        category: "muslim",
+        focusArea: "Emergency Relief",
         featured: "true"
+      },
+      {
+        name: "Muslim Aid",
+        description: "International relief and development organization providing emergency assistance, healthcare, and education support in Palestinian territories.",
+        website: "https://www.muslimaid.org",
+        category: "muslim",
+        focusArea: "Development Programs",
+        featured: "false"
+      },
+      {
+        name: "Islamic Society of North America Relief",
+        description: "Providing humanitarian aid and emergency relief to Palestinian families through Islamic principles of charity and compassion.",
+        website: "https://www.isnarelief.org",
+        category: "muslim",
+        focusArea: "Humanitarian Aid",
+        featured: "false"
+      },
+      {
+        name: "Helping Hand for Relief and Development",
+        description: "International Muslim charity focused on emergency relief, medical aid, and sustainable development projects in Gaza.",
+        website: "https://www.hhrd.org",
+        category: "muslim",
+        focusArea: "Medical Aid",
+        featured: "false"
       },
       
       // Gaza Specific
@@ -106,29 +129,29 @@ export class MemStorage implements IStorage {
         featured: "false"
       },
       
-      // Education
+      // Additional Muslim Charities
       {
-        name: "Palestine Education Fund",
-        description: "Supporting Palestinian students through scholarships, school rebuilding programs, and educational resource distribution.",
-        website: "https://www.palestineeducation.org",
-        category: "education",
-        focusArea: "Scholarships",
+        name: "Al-Khair Foundation",
+        description: "International Muslim charity providing emergency relief, clean water projects, and medical aid to Palestinian communities.",
+        website: "https://www.alkhair.org",
+        category: "muslim",
+        focusArea: "Water Projects",
         featured: "false"
       },
       {
-        name: "Gaza School Reconstruction",
-        description: "Focused on rebuilding and repairing schools damaged in Gaza, providing safe learning environments for children.",
-        website: "https://www.gazaschools.org",
-        category: "education",
-        focusArea: "Infrastructure",
+        name: "Ummah Welfare Trust",
+        description: "UK-based Islamic charity specializing in emergency relief and development projects in Palestinian territories.",
+        website: "https://www.uwt.org",
+        category: "muslim",
+        focusArea: "Emergency Relief",
         featured: "false"
       },
       {
-        name: "Digital Learning Initiative",
-        description: "Providing technology and digital learning resources to Palestinian students, enabling remote education opportunities.",
-        website: "https://www.digitallearningpalestine.org",
-        category: "education",
-        focusArea: "Technology",
+        name: "Muslim Hands",
+        description: "International relief organization providing humanitarian aid, medical assistance, and sustainable development in Gaza.",
+        website: "https://www.muslimhands.org.uk",
+        category: "muslim",
+        focusArea: "Humanitarian Aid",
         featured: "false"
       }
     ];
