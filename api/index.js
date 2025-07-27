@@ -1,5 +1,5 @@
 const express = require('express');
-const path = require('path');
+const { createServer } = require('@vercel/node'); // This is just symbolic, Vercel will wrap it
 const { storage } = require('./storage.js');
 const { insertCharitySchema } = require('./schema.js');
 const {
@@ -11,9 +11,10 @@ const {
   antiDDoSMiddleware
 } = require('./security.js');
 
+// Initialize Express
 const app = express();
 
-// Apply military-grade security middleware for Vercel
+// Apply security middlewares
 app.use(securityHeadersMiddleware);
 app.use(honeypotMiddleware);
 app.use(rateLimitMiddleware);
@@ -23,7 +24,8 @@ app.use(secureLoggingMiddleware);
 
 app.use(express.json());
 
-// Get all charities
+// Routes
+
 app.get("/api/charities", async (req, res) => {
   try {
     const charities = await storage.charities.getAll();
@@ -34,7 +36,6 @@ app.get("/api/charities", async (req, res) => {
   }
 });
 
-// Get charities by category
 app.get("/api/charities/category/:category", async (req, res) => {
   try {
     const { category } = req.params;
@@ -46,13 +47,11 @@ app.get("/api/charities/category/:category", async (req, res) => {
   }
 });
 
-// Search charities
 app.get("/api/charities/search", async (req, res) => {
   try {
     const { q } = req.query;
     if (!q || typeof q !== 'string') {
-      res.status(400).json({ message: "Search query is required" });
-      return;
+      return res.status(400).json({ message: "Search query is required" });
     }
     const charities = await storage.charities.search(q);
     res.json(charities);
@@ -62,7 +61,6 @@ app.get("/api/charities/search", async (req, res) => {
   }
 });
 
-// Create a new charity (for future admin functionality)
 app.post("/api/charities", async (req, res) => {
   try {
     const charity = await storage.charities.create(req.body);
@@ -73,4 +71,5 @@ app.post("/api/charities", async (req, res) => {
   }
 });
 
+// Export handler for Vercel
 module.exports = app;
