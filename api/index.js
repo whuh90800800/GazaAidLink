@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const { storage } = require('./storage.js');
 const { insertCharitySchema } = require('./schema.js');
 const {
@@ -25,9 +26,10 @@ app.use(express.json());
 // Get all charities
 app.get("/api/charities", async (req, res) => {
   try {
-    const charities = await storage.getAllCharities();
+    const charities = await storage.charities.getAll();
     res.json(charities);
   } catch (error) {
+    console.error('Error fetching charities:', error);
     res.status(500).json({ message: "Failed to fetch charities" });
   }
 });
@@ -36,9 +38,10 @@ app.get("/api/charities", async (req, res) => {
 app.get("/api/charities/category/:category", async (req, res) => {
   try {
     const { category } = req.params;
-    const charities = await storage.getCharitiesByCategory(category);
+    const charities = await storage.charities.getByCategory(category);
     res.json(charities);
   } catch (error) {
+    console.error('Error fetching charities by category:', error);
     res.status(500).json({ message: "Failed to fetch charities by category" });
   }
 });
@@ -51,9 +54,10 @@ app.get("/api/charities/search", async (req, res) => {
       res.status(400).json({ message: "Search query is required" });
       return;
     }
-    const charities = await storage.searchCharities(q);
+    const charities = await storage.charities.search(q);
     res.json(charities);
   } catch (error) {
+    console.error('Error searching charities:', error);
     res.status(500).json({ message: "Failed to search charities" });
   }
 });
@@ -61,16 +65,12 @@ app.get("/api/charities/search", async (req, res) => {
 // Create a new charity (for future admin functionality)
 app.post("/api/charities", async (req, res) => {
   try {
-    const result = insertCharitySchema.safeParse(req.body);
-    if (!result.success) {
-      res.status(400).json({ message: "Invalid charity data", errors: result.error.errors });
-      return;
-    }
-    const charity = await storage.createCharity(result.data);
+    const charity = await storage.charities.create(req.body);
     res.status(201).json(charity);
   } catch (error) {
+    console.error('Error creating charity:', error);
     res.status(500).json({ message: "Failed to create charity" });
   }
 });
 
-export default app;
+module.exports = app;
